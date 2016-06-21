@@ -40,6 +40,9 @@ gem 'will_paginate', '~> 3.0.5'
 # Integrate will_paginate with bootstrap
 gem 'bootstrap-will_paginate'
 
+# Add simple_form Gem
+gem 'simple_form'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
