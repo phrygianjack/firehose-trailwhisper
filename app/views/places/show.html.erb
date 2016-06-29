@@ -34,7 +34,7 @@
   
   <br />
 
-  <!-- Begin Buttons -->
+  <!-- Begin Edit / Destroy Buttons -->
 
   <div class="pull-right">
     <% if current_user && current_user == @place.user %>
@@ -43,18 +43,26 @@
     <% end %>
   </div>
 
-  <!-- End Buttons -->
+  <!-- End Edit / Destroy Buttons -->
 
 </div>
 
 <div class="clear"></div>
 
-<!-- Begin Comment Creation Form -->
+<!-- Begin Comments Sub Header -->
 
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  Add a Comment
-</button>
+<div class="col-xs-10 col-xs-offset-1">
+  <h1 class="pull-left">Comments</h1>
+
+  
+
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary btn-lg pull-right" data-toggle="modal" data-target="#myModal">
+    Add a Comment
+  </button>
+</div>
+
+<div class="clear"></div>
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -78,14 +86,12 @@
     </div>
   </div>
 </div>
-<!-- End Comment Creation Form -->
+<!-- End Comments Sub Header -->
 
 <!-- Begin Comments Listing -->
 
-<h1>Comments</h1>
-
 <% @place.comments.each do |comment| %>
-  <div>
+  <div class="col-xs-12 col-sm-6">
     <blockquote>
       <% if comment.humanized_rating.present? %>
         <b><%= comment.humanized_rating %></b>
