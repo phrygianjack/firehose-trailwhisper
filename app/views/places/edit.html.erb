@@ -7,7 +7,7 @@
     <br />
     <% @place.photos.each do |photo| %>
       <%= link_to place_photo_path(@place, photo), method: :delete do %>
-        <%= image_tag(photo.picture, style: 'height:320px;width:auto;') %>
+        <%= image_tag(photo.picture, style: 'height:auto;width:auto;max-width:400px;max-height:300px;') %>
         <i class="glyphicon glyphicon-trash"></i>
         <br />
       <% end %>
