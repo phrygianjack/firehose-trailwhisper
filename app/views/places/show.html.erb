@@ -1,3 +1,5 @@
+<!-- Begin Main Body of Detail Page -->
+
 <div class="booyah-box col-xs-10 col-xs-offset-1">
   <h1><%= @place.name %></h1>
   <i><%= @place.address %></i>
@@ -34,17 +36,38 @@
   
   <br />
 
-  <!-- Begin Edit / Destroy Buttons -->
+  <!-- Begin Photo Display -->
+  <div>
+    <% @place.photos.each do |photo| %>
+      <div class="col-xs-8 col-xs-offset-3">  
+        <%= image_tag(photo.picture, size: '640x480') %>  
+        <br />  
+      </div>
+      <div class="clear"></div>
+
+      <div class="col-xs-4 col-xs-offset-4 text-center"> 
+          <%= photo.caption %>     
+        <br />
+        <br />      
+      </div>
+    <% end %>
+  </div>
+
+  <br />
+
+<!-- End Photo Display -->
+
+  <!-- Begin Photo / Edit / Destroy Buttons -->
 
   <div class="pull-right">
     <% if current_user && current_user == @place.user %>
-      <!-- Button trigger modal -->
+      <!-- Button trigger Photo modal -->
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#photoModal">
         Add a Photo
       </button>
 
-      <!-- Modal -->
-      <div class="modal fade" id="photoModal" tabindex="-1" role="dialog" aria-labelledby="photoModalLabel">
+      <!-- Begin Photo Modal -->
+      <div class="modal fade" id="photoModal" tabindex="-1" role="dialog" aria-labelledby="photoModalLabel" data-backdrop="static">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -54,8 +77,8 @@
 
             <div class="modal-body">
               <%= simple_form_for @photo, url: place_photos_path(@place) do |f| %>
-                <%= f.input :caption %>
-               
+                <%= f.input :picture %>
+                <%= f.input :caption %>            
 
                 </div>
 
@@ -67,17 +90,20 @@
           </div>
         </div>
       </div>
-      
+      <!-- End Photo Modal -->
+
       <%= link_to 'Edit', edit_place_path(@place), class: 'btn btn-primary' %>
       <%= link_to 'Destroy', place_path(@place), method: :delete, data: {confirm: 'Are you sure you want to delete this?'}, class: 'btn btn-danger' %>
     <% end %>
   </div>
 
-  <!-- End Edit / Destroy Buttons -->
+  <!-- End Photo / Edit / Destroy Buttons -->
 
 </div>
 
 <div class="clear"></div>
+
+<!-- End main body of detail page -->
 
 <!-- Begin Comments Sub Header -->
 

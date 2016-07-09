@@ -5,6 +5,14 @@
     <%= f.input :address %>
     <%= f.input :description %>
     <br />
+    <% @place.photos.each do |photo| %>
+      <%= link_to place_photo_path(@place, photo), method: :delete do %>
+        <%= image_tag(photo.picture, size: '320x240') %>
+        <i class="glyphicon glyphicon-trash"></i>
+        <br />
+      <% end %>
+    <% end %>
+    <br />
     <%= f.submit 'Update', class: 'btn btn-primary' %>
   <% end %>
 </div>

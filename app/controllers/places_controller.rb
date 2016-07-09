@@ -1,5 +1,5 @@
 class PlacesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @places = Place.all.order(created_at: :desc).paginate(page: params[:page], per_page: 3)
