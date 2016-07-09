@@ -40,7 +40,7 @@
   <div>
     <% @place.photos.each do |photo| %>
       <div class="col-xs-8 col-xs-offset-3">  
-        <%= image_tag(photo.picture, size: '640x480') %>  
+        <%= image_tag(photo.picture, style: 'height:640px;width:auto;') %>  
         <br />  
       </div>
       <div class="clear"></div>

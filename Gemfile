@@ -55,6 +55,9 @@ gem "figaro", ">= 1.0.0"
 # Carrierwave for photo upload
 gem 'carrierwave'
 
+# Fog for AWS photo hosting
+gem 'fog'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
