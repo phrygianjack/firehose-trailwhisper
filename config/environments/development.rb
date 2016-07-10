@@ -1,4 +1,16 @@
 Trailwhisper::Application.configure do
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+    address: "smtp.gmail.com",
+    port: 587,
+    domain: "trailwhisper.herokuapp.com",
+    authentication: :plain,
+    enable_starttls_auto: true,
+    user_name: ENV['DEV_MAILER_USER'],
+    password: ENV['DEV_MAILER_PASSWORD']
+  }
+
   config.action_mailer.default_url_options = {host: 'localhost:3030'}
   # Settings specified here will take precedence over those in config/application.rb.
 
